@@ -132,18 +132,33 @@ footer .logo-studio {
     transform-origin: left center;
 }
 
-.site-nav-link:hover::after,
-.site-nav-link:focus::after {
-    transform: scaleX(1);
-}
-
 .site-nav-link:hover,
 .site-nav-link:focus {
     color: var(--accent-color);
 }
 
+.site-nav-link:hover::after,
+.site-nav-link:focus::after {
+    transform: scaleX(1);
+}
+
 .site-nav-link.current {
     color: var(--accent-color);
+}
+
+.current {
+    position: relative;
+}
+.current::before {
+    position: absolute;
+    display: block;
+    bottom: -1px;
+
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
 }
 
 .contacts {
@@ -330,6 +345,9 @@ footer .logo-studio {
 
 .block-work .making-item:last-child {
     margin-right: 0;
+}
+.making-item {
+    display: flex;
 }
 
 .application-title {
@@ -689,7 +707,7 @@ footer {
     line-height: 2;
 
     margin-bottom: 4px;
-
+    
 }
 
 .project-content {
@@ -716,6 +734,7 @@ footer {
     border-left: 1px solid #EEEEEE;
     border-right: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
+
 }
 
 .project-wrap {
@@ -727,19 +746,21 @@ footer {
     background-color: rgba(33, 150, 243, 0.9);
     color: var(--primary-white-color);
 
+
     position: absolute;
     top: 0;
     left: 0;
 
-    width: 100%;
-    height: 100;
+    height: 100%;
+   
     font-size: 18px;
     line-height: 1.5;
     padding: 63px 24px;
-
+    
     transform: translateY(100%);
     transition: transform 250ms var(--cubic-bez-index);
 
+    display: block;
 }
 
 .project-item:hover .project-text,
@@ -775,11 +796,6 @@ footer {
     transition: fill 250ms var(--cubic-bez-index);
 }
 
-.close-button:hover,
-.close-button:focus {
-    fill: currentColor;
-}
-
 .is-hidden {
     opacity: 0;
     visibility: hidden;
@@ -802,4 +818,13 @@ footer {
     border-radius: 4px;
     transition: opacity 250ms var(--cubic-bez-index), transform 250ms var(--cubic-bez-index),
     box-shadow 250ms var(--cubic-bez-index) 250ms;
+}
+.modal:hover,
+.modal:focus {
+    fill: currentColor;
+}
+.close-button {
+    background-color: var(--primary-white-color);
+    height: 30px;
+    width: 30px;
 }
